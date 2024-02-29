@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		
+		<script>
+			function processData(form){
+				const author = form.author.value;
+				const nameBook = form.nameBook.value;
+				const yearPublication = form.yearPublication.value;
+				const circulation = form.circulation.value;
+				
+				console.log(author + nameBook + yearPublication + circulation);
+				
+				document.getElementById("output").innerHTML = "Автор: " + author + " Назва книги: " + nameBook + " Рік видання: " + yearPublication + " Тираж: " + circulation;
+			}
+		</script>
+	</head>
+	<body>
+		<!-- Button to Open the Modal -->
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+			Відкрити форму вводу
+		</button>
+
+		<!-- The Modal -->
+		<div class="modal" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Форма вводу</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+
+				<!-- Modal body -->
+					<div class="modal-body">
+						<form action="/action_page.php">
+							<div class="mb-3 mt-3">
+								<label for="author" class="form-label">Автор книги</label>
+								<input type="text" class="form-control" id="author" name="email">
+							</div>
+							<div class="mb-3">
+								<label for="nameBook" class="form-label">Назва книги</label>
+								<input type="text" class="form-control" id="nameBook" name="pswd">
+							</div>
+							<div class="mb-3">
+								<label for="yearPublication" class="form-label">Рік видання</label>
+								<input type="number" class="form-control" id="yearPublication" name="pswd">
+							</div>
+							<div class="mb-3">
+								<label for="circulation" class="form-label">Тираж</label>
+								<input type="number" class="form-control" id="circulation" name="pswd">
+							</div>
+							<button type="button" class="btn btn-primary" onclick="processData(this.form)">Подати дані</button>
+						</form>
+					</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<div id="output"></div>
+	</body>
+</html>
